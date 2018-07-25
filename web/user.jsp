@@ -9,7 +9,7 @@
 <jsp:include page="header.jsp"/>
 <div style="background-color: white">
 <div class="panel-heading" style="background-color: #0033CC">
-    <h3 style="color: white"><p>${err}</p></h3>
+    <h4 style="color: white"><p><b>${err}</b></p></h4>
 </div>
         <p style="margin-left: 10px"><b>Name</b>: ${user.userName}</p>
         <p style="margin-left: 10px"><b>Email</b>: ${user.email}</p>

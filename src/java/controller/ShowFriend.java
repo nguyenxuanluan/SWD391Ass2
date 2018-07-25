@@ -44,7 +44,7 @@ public class ShowFriend extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
 
             out.print("<div style=\"background-color: white\"><div class=\"panel-heading\" style=\"background-color: #0033CC\">"
-                    + "<h3 style=\"color: white\"><b>Your friends</b>:</h3></div>");
+                    + "<h4 style=\"color: white\"><b>Your friends</b>:</h4></div>");
             int count = 0;
             for (User user : users) {
                 ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
