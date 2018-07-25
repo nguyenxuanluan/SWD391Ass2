@@ -40,7 +40,7 @@ public class ListRequestFriendController extends HttpServlet {
         
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-             out.print("<h3>All Request Received:</h3>");
+             out.print("<div style=\"background-color: white\"><div class=\"panel-heading\" style=\"background-color: #0033CC\"><h3 style=\"color: white\">All Request Received:</h3></div>");
             ArrayList<User> users = UserDAO.showAllUser();
             int count=0;
             for (User user : users) {
@@ -51,7 +51,7 @@ public class ListRequestFriendController extends HttpServlet {
                     out.print("<p><a href='UserInfo?userid="+user.getId()+"'>" + user.getUserName() + "</a> &emsp; <a href='AcceptFriendController?toUserID=" + user.getId() + "'>Accept</a> / <a href='DontAcceptRequestFriend?toUserID=" + user.getId() + "'>Remove</a>");
                 }
             }
-            out.print("<p>Total: " + count + " result.</p>");
+            out.print("<p style=\"margin-left: 10px\"><b>Total:</b> " + count + " result.</p><br><div>");
         }
     }
 

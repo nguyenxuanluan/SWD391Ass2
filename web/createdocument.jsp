@@ -8,21 +8,29 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <jsp:include page="header.jsp"/>
-<form action="CreateDocumentController" method="post" enctype="multipart/form-data">
-    Title:<br>
-    <input size="50" type="text" name="title" value="">
+<form action="CreateDocumentController" method="post" enctype="multipart/form-data" style="background-color: white">
+    <div class="panel-heading" style="background-color: #0033CC">
+        <h3 style="color: white"><b>Upload your document</b></h3>
+    </div>
     <br>
-    Content:<br>
-    <textarea width="50" type="text" name="content" value=""></textarea>
+    <br>
+    <b style="margin-left: 10px">Title</b>:<br><br>
+    <input size="50" type="text" name="title" value="" style="margin-left: 20px">
+    <br>
+    <br>
+    <b style="margin-left: 10px">Content</b>:<br><br>
+    <textarea width="50" type="text" name="content" value="" style="margin-left: 20px"></textarea>
     <br>
     <br>
 
     <br>
     <br>
-    Attach File:<br>
-    <input type="file" name="file">
-    <br><br>
-    <input type="submit" value="Upload">
+    <b style="margin-left: 10px">Attach File:</b><br>
+    <input type="file" name="file" style="margin-left: 20px">
+    <br>
+    <input type="submit" value="Upload" style="margin-left: 20px">
+    <br>
+    <br>
 </form> 
     <script>
         function addUserId(userName){

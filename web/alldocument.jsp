@@ -14,8 +14,8 @@
     <jsp:useBean id="likeDocumentDAO" class="model.LikeDocumentDAO"/>
     
     <div class="panel panel-info">
-        <div class="panel-heading">
-            Recent Document
+        <div class="panel-heading" style="background-color: #0033CC">
+            <h4 style="color: white"><b>Documents</b></h4>
         </div>
         <div class="panel-body">
             

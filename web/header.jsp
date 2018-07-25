@@ -11,7 +11,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Web-based system Test</title>
+  <title>Acadelib - Document for your life</title>
   
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -44,7 +44,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <a href="./home.jsp">
                        Acadelib
                     </a>
                 </li>
@@ -55,7 +55,7 @@
                     <a href="./myfriend.jsp">Your friend</a>
                 </li>
                 <li>
-                    <a href="./listrequestfriend.jsp">Request Received</a>
+                    <a href="./listrequestfriend.jsp">Friends Requests</a>
                 </li>
                 
                 <li>
@@ -74,14 +74,14 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="background-image: url(https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/151059.jpg)">
             <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
                 <span class="hamb-top"></span>
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
             </button>
             <div class="container">
-                <div class="row">
+                <div class="row" >
                     <div class="leftcolumn">
                   <div class="col-lg-8 col-lg-offset-2">
                 

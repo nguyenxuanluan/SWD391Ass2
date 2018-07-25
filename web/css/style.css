@@ -130,8 +130,9 @@ textarea {
 }
 
 .panel-custom>.panel-heading {
-	background: none;
+
 	border-bottom: none;
+        background-color: blue;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
@@ -143,7 +144,8 @@ textarea {
 	border-radius:15px;
 }
 body{
-	background-color: #F0FFFF;
+	/*background-color: #00CCCC;*/
+        background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/151059.jpg");
 }
 .navbar-default .navbar-collapse, .navbar-default{
 background-color: white;

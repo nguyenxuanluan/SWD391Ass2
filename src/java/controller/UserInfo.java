@@ -45,7 +45,7 @@ public class UserInfo extends HttpServlet {
             request.getRequestDispatcher("user.jsp").forward(request, response);
         } else {
             request.setAttribute("user", user);
-            request.setAttribute("err", "User information:");
+            request.setAttribute("err", "My profile:");
             request.getRequestDispatcher("user.jsp").forward(request, response);
         }
     }

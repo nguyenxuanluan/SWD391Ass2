@@ -43,17 +43,18 @@ public class ShowFriend extends HttpServlet {
             ArrayList<User> users = UserDAO.showAllUser();
             /* TODO output your page here. You may use following sample code. */
 
-            out.print("<h3>All Friend:</h3>");
+            out.print("<div style=\"background-color: white\"><div class=\"panel-heading\" style=\"background-color: #0033CC\">"
+                    + "<h3 style=\"color: white\"><b>Your friends</b>:</h3></div>");
             int count = 0;
             for (User user : users) {
                 ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
                 ObjectId toUserID = user.getId();
                 if (FriendDAO.checkIsFriend(fromUserID, toUserID) || FriendDAO.checkIsFriend(toUserID, fromUserID)) {
                     count++;
-                    out.print("<p><a href='UserInfo?userid="+user.getId()+"'>" + user.getUserName() + "</a> &emsp; <a href='RemoveFriendController?toUserID=" + user.getId() + "'>Remove Friend</a> </p>");
+                    out.print("<p style=\"margin-left: 10px\"><a href='UserInfo?userid="+user.getId()+"'>" + user.getUserName() + "</a> &emsp; <a href='RemoveFriendController?toUserID=" + user.getId() + "'>Remove Friend</a> </p>");
                 }
             }
-            out.print("<p>Total: " + count + " result.</p>");
+            out.print("<p style=\"margin-left: 10px\"><b>You have: " + count + " friends.</b></p></div>");
         }
     }
 

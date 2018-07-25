@@ -7,10 +7,13 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <jsp:include page="header.jsp"/>
-
-<h2><p>${err}</p></h2>
-        <p>Name: ${user.userName}</p>
-        <p>Email: ${user.email}</p>
+<div style="background-color: white">
+<div class="panel-heading" style="background-color: #0033CC">
+    <h3 style="color: white"><p>${err}</p></h3>
+</div>
+        <p style="margin-left: 10px"><b>Name</b>: ${user.userName}</p>
+        <p style="margin-left: 10px"><b>Email</b>: ${user.email}</p>
+</div>>
         <jsp:useBean id="dao" class="model.AuthorDocumentDAO"/>
         <c:if test = "${sessionmemberid != user.id}">  
             <!--
@@ -21,9 +24,9 @@
         </c:if>
     <hr>
     <div class="panel panel-info">
-        <div class="panel-heading">
+        <div class="panel-heading" style="background-color: #0033CC">
         <c:if test = "${sessionmemberid == user.id}">  
-            My Documents (${dao.findDocumentByAuthorUserId(param.userid).size()})
+            <b style="color: white">My Documents<b> (${dao.findDocumentByAuthorUserId(param.userid).size()})
         </c:if>  
         <c:if test = "${sessionmemberid != user.id}">  
             ${user.userName} 's Documents (${dao.findDocumentByAuthorUserId(param.userid).size()})
