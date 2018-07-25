@@ -11,11 +11,9 @@
  <div class="panel panel-info">
         <div class="panel-heading">
             Author: <a href="UserInfo?userid=${user.id}">${user.userName}</a>
-             | Co-author: 
+            
             <jsp:useBean id="dao" class="model.UserDAO"/>
-            <c:forEach items="${dao.getUsersCoauthorByDocumentId(param.documentid)}" var="i">
-                <a href="UserInfo?userid=${i.id}">${i.userName}</a> 
-            </c:forEach>
+            
             
             <c:if test = "${sessionuser != null}">
             <jsp:useBean id="authorDocumentDAO" class="model.AuthorDocumentDAO"/>
@@ -105,5 +103,4 @@ $(document).keyup(function(e) {
 </script>
     </div>
 
-<jsp:include page="footer.jsp"/>
 

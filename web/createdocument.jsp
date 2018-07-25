@@ -16,23 +16,13 @@
     <textarea width="50" type="text" name="content" value=""></textarea>
     <br>
     <br>
-    Co-author (Split by ","):<br>
-    <input size="50" type="text" name="coauthor" value="" id="coauthor">
-    <br>
-    
-
-    Suggest:<br>
-    <jsp:useBean id="dao" class="model.UserDAO"/>
-    <c:forEach items="${dao.friendOfUser(sessionmemberid)}" var="i">
-        <a style="cursor: pointer" onclick="addUserId('${i.userName}')">${i.userName}</a> 
-    </c:forEach>
 
     <br>
     <br>
     Attach File:<br>
     <input type="file" name="file">
     <br><br>
-    <input type="submit" value="Send">
+    <input type="submit" value="Upload">
 </form> 
     <script>
         function addUserId(userName){
@@ -41,5 +31,3 @@
         }
     </script>
     
-
-<jsp:include page="footer.jsp"/>

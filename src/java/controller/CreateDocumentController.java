@@ -6,7 +6,6 @@
 package controller;
 
 import model.AuthorDocumentDAO;
-import model.CoauthorDocumentDAO;
 import model.DocumentDAO;
 import model.UserDAO;
 import java.io.File;
@@ -22,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import entities.AuthorDocument;
-import entities.CoauthorDocument;
 import entities.Document;
 import entities.User;
 import org.bson.types.ObjectId;
@@ -53,7 +51,7 @@ public class CreateDocumentController extends HttpServlet {
         ObjectId userID = (ObjectId) (session.getAttribute("sessionmemberid"));
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-        String coauthor = request.getParameter("coauthor");
+        String coauthor = "";
 
         //upload
         String applicationPath = request.getServletContext().getRealPath("");
@@ -83,17 +81,7 @@ public class CreateDocumentController extends HttpServlet {
         ObjectId documentID = DocumentDAO.createDocument(new Document(title, content, fileName));
         // author
         AuthorDocumentDAO.createAuthorDocument(new AuthorDocument(userID, documentID));
-        // coauthor
-        String[] coauthorsUsername = coauthor.split(",");
-        for (String coauthorUsername : coauthorsUsername) {
-            try {
-                String coauthorId = UserDAO.getUserId(coauthorUsername);
-                CoauthorDocument cD = new CoauthorDocument(new ObjectId(coauthorId), documentID);
-                CoauthorDocumentDAO.createCoauthorDocument(cD);
-            }catch (Exception e){
-                
-            }
-        }
+      
         /*
         request.getRequestDispatcher("UserInfo?userid=" + userID).forward(
                 request, response);*/

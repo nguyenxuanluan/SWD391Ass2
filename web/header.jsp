@@ -13,130 +13,78 @@
   <meta charset="UTF-8">
   <title>Web-based system Test</title>
   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 
       <link rel="stylesheet" href="css/style.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="css/test.css">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <script src="js/js/bootstrap.min.js"></script>
+<script src="js/js/jquery-1.11.1.min.js"></script>
+<script src="js/js/test.js"></script>
+      
       
 </head>
-<body>
+<body class="home">
   
 <div class="navbar navbar-default navbar-static-top">
-	<div class="container">
-		<div class="navbar-collapse navbar-collapse-1 collapse" aria-expanded="true">
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="./"><span class="glyphicon glyphicon-home"></span> 
-                                            
-                                        Home
-                        
-                                        </a>
-				</li>
-                                <li class="dropdown">
-					<a href="./myfriend.jsp"><span class="glyphicon glyphicon-globe"></span> 
-                                        Friend
-                                        </a>
-                                        <div class="dropdown-content">
-                                            <a href="./myfriend.jsp">Your Friend</a>
-                                          <a href="./requestfriendsent.jsp">Request Sent</a>
-                                          <a href="./listrequestfriend.jsp">Request Received</a>
-                                        </div>
-				</li>
-				
-				<li>
-					<a href="mycolleague.jsp"><span class="glyphicon glyphicon-education"></span> Colleague</a>
-				</li>
-			</ul>
-			<div class="navbar-form navbar-right">
-				<div class="form-group has-feedback">
-					<input type="text" class="form-control-nav" placeholder=" Search" id="search" aria-describedby="search1">
-					<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
-				</div>
-                            <script>
-                                document.getElementById("search")
-                                    .addEventListener("keyup", function(event) {
-                                    event.preventDefault();
-                                    if (event.keyCode === 13) {
-                                        window.location.href = '/SWDAss2/searchresult.jsp?input='+document.getElementById("search").value;
-                                    }
-                                });
-                            </script>
-				<div class="dropdown btn btn-primary" type="submit" aria-label="Left Align">
-					<span class="glyphicon glyphicon-user" aria-hidden="true"> </span> 
-                                
-                                        <c:if test = "${sessionuser != null}">
-                                            <a class="a-white" href="UserInfo?userid=${sessionmemberid}">Wellcome ${sessionuser}</a> 
-                                            <div class="dropdown-content user">
-                                                <a href="./changepassword.jsp">Change password</a>
-                                                <a href="./LogoutController">Logout</a>
-                                              </div>
-                                        </c:if>
-                                       <c:if test = "${sessionuser == null}">
-                                            <a  class="a-white" href="LoginController">Login or Sign up</a>
-                                       </c:if>
-          
-                                
-                                </div>
-			</div>
-		</div>
-	</div>
-</div>
+    
+       <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                       Acadelib
+                    </a>
+                </li>
+                <li>
+                    <a href="./home.jsp">Home</a>
+                </li>
+                <li>
+                    <a href="./myfriend.jsp">Your friend</a>
+                </li>
+                <li>
+                    <a href="./listrequestfriend.jsp">Request Received</a>
+                </li>
+                
+                <li>
+                    <a href="./createdocument.jsp">Upload document</a>
+                </li>
+                
+                <li>
+                    <a href="UserInfo?userid=${sessionScope.sessionmemberid}">Profile</a>
+                </li>
+                <li>
+                    <a href="./LogoutController">Log out</a>
+                </li>
+                
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
 
-<div class="container">
-	<div class="row">
-		<div class="col-sm-3">
-			<div class="panel panel-default">
-				<div class="panel-body">
-                                     <c:if test = "${sessionuser != null}">
-					<a href="createdocument.jsp"><img class="img-responsive" alt="" src="img/post.jpg"></a>
-                                        
-					<div class="row">
-                                           
-						<div class="col-xs-4">
-							<h5>
-								<small>DOCUMENTS</small>
-                                                                <jsp:useBean id="dao" class="model.AuthorDocumentDAO"/>
-								<a href="UserInfo?userid=${sessionmemberid}">${dao.countDocumentByUserId(sessionmemberid)}</a>
-							</h5>
-						</div>
-						<div class="col-xs-3">
-							<h5>
-								<small>FRIENDS</small>
-                                                                <jsp:useBean id="friendDAO" class="model.FriendDAO"/>
-								<a href="./myfriend.jsp">${friendDAO.numFriend(sessionmemberid)}</a>
-							</h5>
-						</div>
-						<div class="col-xs-5">
-							<h5>
-                                                            <small>COLLEAGUE</small><br>
-                                                                <jsp:useBean id="colleagueDAO" class="model.ColleagueDAO"/>
-								<a href="./mycolleague.jsp">${colleagueDAO.numColleague(sessionmemberid)}</a>
-							</h5>
-						</div>
-                                            
-					</div>
-                                     </c:if>
-				</div>
-			</div>
-                        <!--
-			<div class="panel panel-default panel-custom">
-				<div class="panel-heading">
-					<h3 class="panel-title">
-						Other
-						<small><a href="#"></a></small>
-					</h3>
-				</div>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                <div class="row">
+                    <div class="leftcolumn">
+                  <div class="col-lg-8 col-lg-offset-2">
+                
+                  
 
-				<div class="panel-body">
-					<ul class="list-unstyled">
-						<li>aaa</li>
-                                                <li>aaa</li>
-                                                <li>aaa</li>
-					</ul>
-				</div>
-			</div>
-                        -->
-		</div>
-            <div class="col-sm-6">
+    

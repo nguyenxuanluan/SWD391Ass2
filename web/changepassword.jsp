@@ -21,5 +21,3 @@
     <br><br>
     <input type="submit" value="Change password">
 </form> 
-
-<jsp:include page="footer.jsp"/>

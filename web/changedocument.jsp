@@ -21,37 +21,11 @@
     Content:<br>
     <textarea width="50" type="text" name="content" value="">${document.content}</textarea>
     <br>
-    <br>
-    Co-author (Split by ","):<br>
-    
-    <c:set var="coauthor" value=""/>
-    <c:forEach items="${dao.getUsersCoauthorByDocumentId(param.documentID)}" var="i">
-       <c:set var="coauthor" value="${coauthor}${i.userName},"/>
-    </c:forEach>
-    
-    <input size="50" type="text" name="coauthor" value="${coauthor}" id="coauthor">
-    <br>
     
 
-    Suggest:<br>
     
-    <c:forEach items="${dao.friendOfUser(sessionmemberid)}" var="i">
-        <a style="cursor: pointer" onclick="addUserId('${i.userName}')">${i.userName}</a> 
-    </c:forEach>
-
-    <br>
-    <br>
     Attach File:<br>
     <input type="file" name="file">
     <br><br>
-    <input type="submit" value="Send">
+    <input type="submit" value="Update">
 </form> 
-    <script>
-        function addUserId(userName){
-            console.log("a");
-            document.getElementById("coauthor").value+=userName+",";
-        }
-    </script>
-    
-
-<jsp:include page="footer.jsp"/>

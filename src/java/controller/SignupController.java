@@ -20,7 +20,7 @@ public class SignupController extends HttpServlet {
             throws ServletException, IOException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+            String password = request.getParameter("password");
         User user = UserDAO.checkUser(name);
         if (user == null) {
             User userNew = new User(name, password, email);

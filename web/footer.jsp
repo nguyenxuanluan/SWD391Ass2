@@ -7,11 +7,31 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
 </div>
 <div class="col-sm-3">
     <div class="panel panel-default panel-custom">
+        
+        
         <div class="panel-heading">
+            <div class="form-group has-feedback">
+					<input type="text" class="form-control-nav" placeholder=" Search" id="search" aria-describedby="search1">
+					
+				</div>
+             <script>
+                                document.getElementById("search")
+                                    .addEventListener("keyup", function(event) {
+                                    event.preventDefault();
+                                    if (event.keyCode === 13) {
+                                        window.location.href = '/SWD391Ass2/searchresult.jsp?input='+document.getElementById("search").value;
+                                    }
+                                });
+                            </script>
             <h3 class="panel-title">
+                
+            
                 People you may know:
 
                 ${message}
@@ -32,26 +52,6 @@
 
         </div>
 
-    </div>
-    <div class="well well-sm">
-        <ul class="list-inline">
-            <li>© 2015 Twitter</li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Ads info</a></li>
-            <li><a href="#">Brand</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Status</a></li>
-            <li><a href="#">Apps</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Advertise</a></li>
-            <li><a href="#">Businesses</a></li>
-            <li><a href="#">Media</a></li>
-            <li><a href="#">Developers</a></li>
-        </ul>
     </div>
 </div>
 </div>

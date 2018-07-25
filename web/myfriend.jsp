@@ -10,4 +10,3 @@
 <!DOCTYPE html>
 <jsp:include page="header.jsp"/>
 <jsp:include page="ShowFriend"/>
-<jsp:include page="footer.jsp"/>

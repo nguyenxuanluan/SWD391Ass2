@@ -1,6 +1,5 @@
-package controller;
+    package controller;
 
-import model.ColleagueDAO;
 import model.FriendDAO;
 import model.UserDAO;
 import java.io.IOException;

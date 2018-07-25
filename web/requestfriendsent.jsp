@@ -9,4 +9,3 @@
 <!DOCTYPE html>
 <jsp:include page="header.jsp"/>
 <jsp:include page="RequestFriendSentController"/>
-<jsp:include page="footer.jsp"/>

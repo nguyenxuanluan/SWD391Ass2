@@ -5,7 +5,6 @@
  */
 package controller;
 
-import model.ColleagueDAO;
 import model.FriendDAO;
 import model.RequestFriendDAO;
 import model.UserDAO;
@@ -51,52 +50,41 @@ public class SuggestFriendController extends HttpServlet {
             for (User user : users) {
                 ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
                 ObjectId toUserID = user.getId();
-                if (RequestFriendDAO.checkRequestSent(fromUserID, toUserID) == false && RequestFriendDAO.checkRequestSent(toUserID, fromUserID) == false && !fromUserID.equals(toUserID) && FriendDAO.checkIsFriend(fromUserID, toUserID) == false&& FriendDAO.checkIsFriend(toUserID, fromUserID) == false) {
+                if (RequestFriendDAO.checkRequestSent(fromUserID, toUserID) == false && RequestFriendDAO.checkRequestSent(toUserID, fromUserID) == false 
+                        && !fromUserID.equals(toUserID) && FriendDAO.checkIsFriend(fromUserID, toUserID) == false&& FriendDAO.checkIsFriend(toUserID, fromUserID) == false) {
                     // hien thi loi moi ket ban
                     out.print("<p><a href='UserInfo?userid=" + user.getId() + "'>" + user.getUserName() + "</a> - <a href='AddFriendController?toUserID=" + user.getId() + "'>Add Friend</a></p>");
 
                 }
             }
-            // suggest colleague
-            out.print("<hr>Colleague you may know:<br><br>");
-            for (User user : users) {
-                ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
-                ObjectId toUserID = user.getId();
-
-                // hien thi xem neu chua phai dong nghiep
-                if (!ColleagueDAO.checkColleague(fromUserID, toUserID)) {
-                    out.print("<p><a href='UserInfo?userid=" + user.getId() + "'>" + user.getUserName() + "</a> " + "- <a href='AddColleagueController?toUserID=" + user.getId() + "'>Add Colleague</a></p>");
-                }
-
-            }
-            /*
-            out.print("<p>Friend: </p>");
-            for (User user : users) {
-                ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
-                ObjectId toUserID = user.getId();
-                if (FriendDAO.checkIsFriend(fromUserID, toUserID) || FriendDAO.checkIsFriend(toUserID, fromUserID)) {
-                    out.print("<p>" + user.getUserName() + " &emsp; <a href='RemoveFriendController?toUserID=" + user.getId() + "'>Remove Friend</a> </p>");
-                }
-            }
-
-            out.print("<p>List Request: </p>");
-            for (User user : users) {
-                ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
-                ObjectId toUserID = user.getId();
-                if (RequestFriendDAO.checkRequestSent(toUserID, fromUserID)) {
-                    out.print("<p>" + user.getUserName() + " &emsp; <a href='AcceptFriendController?toUserID=" + user.getId() + "'>Accept</a>");
-                }
-            }
-
-            out.print("<p>Colleague: </p>");
-            for (User user : users) {
-                ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
-                ObjectId toUserID = user.getId();
-                if (ColleagueDAO.checkColleague(fromUserID, toUserID)) {
-                    out.print("<p>" + user.getUserName() + " &emsp; <a href='CancelColeagueController?toUserID=" + user.getId() + "'>Cancel Colleague</a>");
-                }
-            }
-             */
+         
+//            out.print("<p>Friend: </p>");
+//            for (User user : users) {
+//                ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
+//                ObjectId toUserID = user.getId();
+//                if (FriendDAO.checkIsFriend(fromUserID, toUserID) || FriendDAO.checkIsFriend(toUserID, fromUserID)) {
+//                    out.print("<p>" + user.getUserName() + " &emsp; <a href='RemoveFriendController?toUserID=" + user.getId() + "'>Remove Friend</a> </p>");
+//                }
+//            }
+//
+//            out.print("<p>List Request: </p>");
+//            for (User user : users) {
+//                ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
+//                ObjectId toUserID = user.getId();
+//                if (RequestFriendDAO.checkRequestSent(toUserID, fromUserID)) {
+//                    out.print("<p>" + user.getUserName() + " &emsp; <a href='AcceptFriendController?toUserID=" + user.getId() + "'>Accept</a>");
+//                }
+//            }
+//
+//            out.print("<p>Colleague: </p>");
+//            for (User user : users) {
+//                ObjectId fromUserID = (ObjectId) (session.getAttribute("sessionmemberid"));
+//                ObjectId toUserID = user.getId();
+//                if (ColleagueDAO.checkColleague(fromUserID, toUserID)) {
+//                    out.print("<p>" + user.getUserName() + " &emsp; <a href='CancelColeagueController?toUserID=" + user.getId() + "'>Cancel Colleague</a>");
+//                }
+//            }
+             
         }
     }
 }

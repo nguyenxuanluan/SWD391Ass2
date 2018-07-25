@@ -9,7 +9,6 @@ import entities.MongoContext;
 import java.util.ArrayList;
 import java.util.Date;
 import entities.AuthorDocument;
-import entities.CoauthorDocument;
 import entities.Document;
 import entities.User;
 import org.bson.types.ObjectId;
@@ -113,21 +112,6 @@ public class UserDAO {
         User user = ds.find(User.class).filter("_id", authorDocument.getFromUserID()).get();
 
         return user;
-    }
-
-    public static ArrayList<User> getUsersCoauthorByDocumentId(String documentId) {
-        ArrayList<User> users = new ArrayList<>();
-        Datastore ds = MongoContext.getDatastore();
-
-        ArrayList<CoauthorDocument> coauthorDocuments = new ArrayList<>();
-        coauthorDocuments = (ArrayList<CoauthorDocument>) ds.find(CoauthorDocument.class).filter("documentID", new ObjectId(documentId)).asList();
-
-        for (CoauthorDocument coauthorDocument : coauthorDocuments) {
-            User user = ds.find(User.class).filter("_id", coauthorDocument.getFromUserID()).get();
-            users.add(user);
-        }
-
-        return users;
     }
 
     public static void main(String[] args) {

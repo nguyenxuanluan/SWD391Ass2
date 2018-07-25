@@ -1,78 +1,92 @@
+<%-- 
+    Document   : Login
+    Created on : Jul 24, 2018, 8:50:55 PM
+    Author     : Ice Fox
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en" >
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link href="assets/css/login.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8">
+        <title>Acadelib login</title>
+        <style>
+            body{
+                h1 {
+                    color: #FFFFFF;
+                }
+            }
+        </style>
+
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+
+        <link rel="stylesheet" href="css/loginstyle.css">
+
+
     </head>
+
     <body>
-        <h1>Please Login or Sign up </h1>
-        <div class="main">
-            <div class="login-top left">
-                <div class="social_icons">
-                    <!-- Facebook -->
-                    <div class="slide-social w3l">
-                        <a href="#">
-                            <div class="button">Facebook</div>
-                            <div class="facebook icon"> <i class="facebook"></i> </div>
-                            <div class="facebook slide">
-                                <p>Facebook</p>
+        <div class="login-wrap">
+            <div class="login-html">
+                <h1 style="color: white">ACADELIB</h1>
+                <h3 style="color: white">Document for your life</h3>
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                <div class="login-form">
+                    <div class="sign-in-htm">
+                        <form method="POST" action="LoginController">
+                            <div class="group">
+                                <label for="user" class="label">Email</label>
+                                <input id="email" type="text" name="name" class="input">
                             </div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
-                    <!-- Twitter -->
-                    <div class="slide-social w3l">
-                        <a href="#">
-                            <div class="button">Twitter</div>
-
-                            <div class="twitter icon"> <i class="twitter"></i></div>
-                            <div class="twitter slide">
-                                <p>Twitter</p>
+                            <div class="group">
+                                <label for="pass" class="label">Password</label>
+                                <input id="pass" type="password" name="password" class="input" data-type="password">
                             </div>
-                            <div class="clear"></div>
-                        </a> 
+                            <div class="group">
+                                <input id="check" type="checkbox" class="check" checked>
+                                <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Login">
+                            </div>
+                        </form>>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <a href="#forgot">Forgot Password?</a>
+                        </div>
                     </div>
-
+                    <div class="sign-up-htm">
+                        <form method="POST" action="SignupController">
+                            <div class="group">
+                                <label for="user" class="label">Username</label>
+                                <input id="user" type="text" class="input" name="name">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Password</label>
+                                <input id="pass" type="password" class="input" data-type="password" name="password">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Email Address</label>
+                                <input id="pass" type="text" class="input" name="email">
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Sign Up">
+                            </div>
+                        </form>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <label for="tab-1">Already Member?</a>
+                        </div>
+                    </div>
                 </div>
-                <form action="SignupController" method="post">
-                    <input type="text" name="name" class="name" placeholder="Your Name" required="">
-                    <input type="text" name="email" class="email" placeholder="Your Email" required="">	
-                    <input type="password" name="password" class="password" placeholder="Password" required="">
-                    <input type="password" name="password" class="password" placeholder="Confirm Password" required="">											
-                    <input type="submit" value="SIGN UP">
-                </form>
-            </div>	
-
-            <!--****   LOGIN *****-->
-            <div class="login-top right">
-                <h3>Login</h3>
-                <form action="LoginController" method="post">
-                    <input type="text" class="email1 " name="name" placeholder="username" required="">
-                    <input type="password" class="password1" name="password"  placeholder="Password" required="">	
-                    <input type="checkbox" id="brand" value="">
-                    <label for="brand"><span></span> Remember me</label>
-                    <div class="login-bottom">
-                        <ul>
-                            <li>
-                                <a href="#">Forgot password?</a>
-                            </li>
-                            <li>
-
-                                <input type="submit" value="LOGIN">
-
-                            </li>
-                            <div class="clear"></div>
-                        </ul>
-                    </div>	
-                </form>
-                <p style="color: red">${err}</p>
             </div>
-            <div class="clear"></div>
         </div>
-        <div class="copy-right w3l-agile">
-            <p> © 2018 Document Sharing . All Rights Reserved</p>
-        </div>
+
+
+
     </body>
+
 </html>
+

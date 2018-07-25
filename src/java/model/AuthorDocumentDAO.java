@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import entities.AuthorDocument;
 import entities.AuthorDocument;
-import entities.CoauthorDocument;
-import entities.CoauthorDocument;
 import entities.Document;
 import entities.Document;
 import entities.MongoContext;
@@ -57,19 +55,7 @@ public class AuthorDocumentDAO {
         return arrDocument;
     }
     
-    public static ArrayList<Document> findDocumentByCoauthorUserId(String fromUserID) {
-        ArrayList<CoauthorDocument> arr = new ArrayList<CoauthorDocument>();
-        Datastore ds = MongoContext.getDatastore();
-        arr = (ArrayList<CoauthorDocument>) ds.find(CoauthorDocument.class).filter("fromUserID", new ObjectId(fromUserID)).asList();
-
-        ArrayList<Document> arrDocument = new ArrayList<Document>();
-        for (CoauthorDocument ad : arr) {
-            Document currentDocument = ds.find(Document.class).filter("_id", (ObjectId)ad.getDocumentID()).get();
-            arrDocument.add(currentDocument);
-        }
-        return arrDocument;
-    }
-    
+   
     public static int countDocumentByUserId(String fromUserID) {
         ArrayList<AuthorDocument> arr = new ArrayList<AuthorDocument>();
         Datastore ds = MongoContext.getDatastore();

@@ -6,7 +6,6 @@
 package controller;
 
 import model.AuthorDocumentDAO;
-import model.CoauthorDocumentDAO;
 import model.CommentDocumentDAO;
 import model.DocumentDAO;
 import java.io.IOException;
@@ -40,7 +39,6 @@ public class DeleteDocumentController extends HttpServlet {
         
         DocumentDAO.deleteDocument(documentID);
         AuthorDocumentDAO.deleteAuthorDocument(documentID);
-        CoauthorDocumentDAO.deleteCoauthorByDocumentID(documentID);
         CommentDocumentDAO.deleteCommentByDocumentID(documentID);
         response.sendRedirect("home.jsp");
     }
