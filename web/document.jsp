@@ -9,8 +9,8 @@
 <jsp:include page="header.jsp"/>
 
  <div class="panel panel-info">
-        <div class="panel-heading">
-            Author: <a href="UserInfo?userid=${user.id}">${user.userName}</a>
+     <div class="panel-heading" style="background-color: #44474c">
+         <b style="color: white">Author: <a href="UserInfo?userid=${user.id}">${user.userName}</a></b>
             
             <jsp:useBean id="dao" class="model.UserDAO"/>
             
@@ -28,12 +28,15 @@
            
                 <div class="media">
                  <div class="media-body">
-                    <span class='date'> ${document.publishAt}</span>
+                    
                     
                     
                     <h4 class="media-heading">${document.title}</h4>
                     <jsp:useBean id="likeDocumentDAO" class="model.LikeDocumentDAO"/>
-                    <c:if test = "${sessionuser != null}">
+                  
+                    <p>${document.content}</p>
+                    <span class='date'> ${document.getStringFromDate()}</span>
+                      <c:if test = "${sessionuser != null}">
                         <c:if test = "${likeDocumentDAO.checkLikeDocument(sessionmemberid, document.documentID)==false}">
                         <a class="like" href="LikeDocumentController?documentID=${document.documentID}">(${likeDocumentDAO.countLikeDocument(document.documentID)} Likes) <span class='glyphicon glyphicon-thumbs-up'></span></a>
                         </c:if>
@@ -41,7 +44,8 @@
                         <a  class="like" href="DislikeDocumentController?documentID=${document.documentID}">(${likeDocumentDAO.countLikeDocument(document.documentID)} Likes) <span class='glyphicon glyphicon-thumbs-down'></span></a>
                         </c:if>
                     </c:if>
-                    <p>${document.content}</p>
+                        <br>
+                        <br>
                     <p>Attach File: <a href="doc/${user.id}/${document.filePath}">${document.filePath}</a></p>
                 </div>
             </div>

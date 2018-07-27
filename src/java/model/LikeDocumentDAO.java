@@ -52,7 +52,4 @@ public class LikeDocumentDAO {
 
         return arr.size();
     }
-    public static void main(String[] args) {
-       
-    }
 }

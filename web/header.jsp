@@ -33,7 +33,7 @@
       
       
 </head>
-<body class="home">
+<body class="home" style="font-family: Verdana,sans-serif">
   
 <div class="navbar navbar-default navbar-static-top">
     

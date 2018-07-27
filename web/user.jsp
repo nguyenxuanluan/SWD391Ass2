@@ -8,12 +8,12 @@
 <!DOCTYPE html>
 <jsp:include page="header.jsp"/>
 <div style="background-color: white">
-<div class="panel-heading" style="background-color: #0033CC">
+<div class="panel-heading" style="background-color: #44474c">
     <h4 style="color: white"><p><b>${err}</b></p></h4>
 </div>
         <p style="margin-left: 10px"><b>Name</b>: ${user.userName}</p>
         <p style="margin-left: 10px"><b>Email</b>: ${user.email}</p>
-</div>>
+</div>
         <jsp:useBean id="dao" class="model.AuthorDocumentDAO"/>
         <c:if test = "${sessionmemberid != user.id}">  
             <!--
@@ -24,12 +24,12 @@
         </c:if>
     <hr>
     <div class="panel panel-info">
-        <div class="panel-heading" style="background-color: #0033CC">
+        <div class="panel-heading" style="background-color: #44474c">
         <c:if test = "${sessionmemberid == user.id}">  
-            <b style="color: white">My Documents<b> (${dao.findDocumentByAuthorUserId(param.userid).size()})
+            <b style="color: white">My Documents (${dao.findDocumentByAuthorUserId(param.userid).size()})</b>
         </c:if>  
         <c:if test = "${sessionmemberid != user.id}">  
-            ${user.userName} 's Documents (${dao.findDocumentByAuthorUserId(param.userid).size()})
+            <b style="color: white">${user.userName} 's Documents (${dao.findDocumentByAuthorUserId(param.userid).size()})</b>
         </c:if>  
         </div>
         <div class="panel-body">
@@ -37,8 +37,10 @@
             <c:forEach items="${dao.findDocumentByAuthorUserId(param.userid)}" var="i">
                 <div class="media">
                 <div class="media-body">
-                    <span class='date'> ${i.publishAt}</span>
+                    
                     <h4 class="media-heading"><a href="DocumentController?documentid=${i.documentID}">${i.title}</a></h4>
+                    
+                    <p>${i.content}</p>
                      <c:if test = "${sessionuser != null}">
                         <c:if test = "${likeDocumentDAO.checkLikeDocument(likeDocumentDAO.convertStringToObjectId(param.userid), i.documentID)==false}">
                         <a class="like" href="LikeDocumentController?documentID=${i.documentID}">(${likeDocumentDAO.countLikeDocument(i.documentID)} Likes) <span class='glyphicon glyphicon-thumbs-up'></span></a>
@@ -47,8 +49,7 @@
                         <a  class="like" href="DislikeDocumentController?documentID=${i.documentID}">(${likeDocumentDAO.countLikeDocument(i.documentID)} Likes) <span class='glyphicon glyphicon-thumbs-down'></span></a>
                         </c:if>
                     </c:if>
-                    <p>${i.content}</p>
-                    
+                        <span class='date'> ${i.getStringFromDate()}</span>
                 </div>
             </div>
             </c:forEach>

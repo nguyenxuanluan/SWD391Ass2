@@ -62,10 +62,4 @@ public class AuthorDocumentDAO {
         arr = (ArrayList<AuthorDocument>) ds.find(AuthorDocument.class).filter("fromUserID", new ObjectId(fromUserID)).asList();
         return arr.size();
     }
-
-    public static void main(String[] args) {
-        //ArrayList<Document> documents = findDocumentByUserId("5b495a3ad048571d58a1a43a");
-        
-        System.out.println(countDocumentByUserId("5b495a3ad048571d58a1a43a"));
-    }
 }

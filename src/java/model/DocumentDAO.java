@@ -72,8 +72,4 @@ public class DocumentDAO {
     
     
     
-    public static void main(String[] args) {
-
-        changeDocument(new ObjectId("5b506d94d0485758b8c597a9"), "a", "a", "a");
-    }
 }

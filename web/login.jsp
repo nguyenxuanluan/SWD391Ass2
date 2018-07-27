@@ -37,7 +37,7 @@
                     <div class="sign-in-htm">
                         <form method="POST" action="LoginController">
                             <div class="group">
-                                <label for="user" class="label">Email</label>
+                                <label for="user" class="label">Username</label>
                                 <input id="email" type="text" name="name" class="input">
                             </div>
                             <div class="group">

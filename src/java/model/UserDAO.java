@@ -114,12 +114,5 @@ public class UserDAO {
         return user;
     }
 
-    public static void main(String[] args) {
-        /*ArrayList<User> arr = showAllUser();
-        User user = arr.get(0);*/
-        //System.out.println(getUserAuthorByDocumentId("5b4df2ffd04857331c717a9c").getUserName());
-        //System.out.println(String.valueOf(showAllUser().get(0).getId()));
-        
-        updatePassword("5b506ce6d0485758b8baacf4","a");
-    }
+    
 }

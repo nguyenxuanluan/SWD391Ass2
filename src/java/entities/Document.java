@@ -5,6 +5,7 @@
  */
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
@@ -87,6 +88,9 @@ public class Document {
 
     public void setPublishAt(Date publishAt) {
         this.publishAt = publishAt;
+    }
+    public String getStringFromDate(){
+        return new SimpleDateFormat("dd/MM/yyyy").format(publishAt);
     }
     
     

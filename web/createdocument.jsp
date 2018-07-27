@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <jsp:include page="header.jsp"/>
 <form action="CreateDocumentController" method="post" enctype="multipart/form-data" style="background-color: white">
-    <div class="panel-heading" style="background-color: #0033CC">
+    <div class="panel-heading" style="background-color: #44474c">
         <h3 style="color: white"><b>Upload your document</b></h3>
     </div>
     <br>

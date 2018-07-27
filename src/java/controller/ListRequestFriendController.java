@@ -40,7 +40,7 @@ public class ListRequestFriendController extends HttpServlet {
         
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-             out.print("<div style=\"background-color: white\"><div class=\"panel-heading\" style=\"background-color: #0033CC\"><h4 style=\"color: white\"><b>All Request Received:</b></h4></div>");
+             out.print("<div style=\"background-color: white\"><div class=\"panel-heading\" style=\"background-color: #44474c\"><h4 style=\"color: white\"><b>All Request Received:</b></h4></div>");
             ArrayList<User> users = UserDAO.showAllUser();
             int count=0;
             for (User user : users) {

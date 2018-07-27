@@ -65,8 +65,4 @@ public class CommentDocumentDAO {
 
         return arr;
     }
-    public static void main(String[] args) {
-        
-        System.out.println(commentDocument(new CommentDocument(new ObjectId("5b495a3ad048571d58a1a43a"), new ObjectId("5b4fdfc6d048572b0066c9d2"), "abcd")));
-    }
 }

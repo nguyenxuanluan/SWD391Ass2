@@ -13,9 +13,9 @@
     <jsp:useBean id="dao" class="model.DocumentDAO"/>
     <jsp:useBean id="likeDocumentDAO" class="model.LikeDocumentDAO"/>
     
-    <div class="panel panel-info">
-        <div class="panel-heading" style="background-color: #0033CC">
-            <h4 style="color: white"><b>Documents</b></h4>
+    <div class="panel panel-info" style="background-color: #4f4d4d">
+        <div class="panel-heading" style="background-color: #44474c">
+            <h4 style="color: white" align="center"><b>Documents</b></h4>
         </div>
         <div class="panel-body">
             
@@ -23,18 +23,18 @@
             <c:forEach items="${dao.findAllDocument()}" var="i">
                 <div class="media">
                  <div class="media-body">
-                    <span class='date'> ${i.publishAt}</span>
-                    <h4 class="media-heading"><a href="DocumentController?documentid=${i.documentID}">${i.title}</a></h4>
+                     <h4 class="media-heading" ><a href="DocumentController?documentid=${i.documentID}" style="color:#99ffff">${i.title}</a></h4>
+                    <p style="color: white">${i.content}</p>
+                    <span class='date' style="color: white"> ${i.getStringFromDate()}</span>
+                    
                     <c:if test = "${sessionuser != null}">
                         <c:if test = "${likeDocumentDAO.checkLikeDocument(sessionmemberid, i.documentID)==false}">
-                        <a class="like" href="LikeDocumentController?documentID=${i.documentID}">(${likeDocumentDAO.countLikeDocument(i.documentID)} Likes) <span class='glyphicon glyphicon-thumbs-up'></span></a>
+                        <a class="like" style="float: left"href="LikeDocumentController?documentID=${i.documentID}">(${likeDocumentDAO.countLikeDocument(i.documentID)} Likes) <span class='glyphicon glyphicon-thumbs-up'></span></a>
                         </c:if>
                         <c:if test = "${likeDocumentDAO.checkLikeDocument(sessionmemberid, i.documentID)==true}">
                         <a  class="like" href="DislikeDocumentController?documentID=${i.documentID}">(${likeDocumentDAO.countLikeDocument(i.documentID)} Likes) <span class='glyphicon glyphicon-thumbs-down'></span></a>
                         </c:if>
                     </c:if>
-                    <p>${i.content}</p>
-                    
                 </div>
             </div>
             </c:forEach>
